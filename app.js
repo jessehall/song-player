@@ -71,7 +71,7 @@ async function render() {
   }));
   if (!nodes.length) { const p=document.createElement('p');p.textContent='No songs here yet.';nodes.push(p); }
   $('tracks').replaceChildren(...nodes);
-  for (const id of ['play','seek','previous','next','back','forward','share']) $(id).disabled = !song;
+  for (const id of ['play','seek','previous','next','back','forward','share','share-song']) $(id).disabled = !song;
 }
 let selection = 0;
 async function selectSong(s, autoplay = false, time = undefined) {
@@ -129,6 +129,7 @@ audio.onpause=()=>{$('play').textContent='▶';$('play').setAttribute('aria-labe
 audio.onended=()=>move(1);audio.onerror=()=>status('This song could not load. Connect to the internet or save it offline first.');
 function shareURL(){const u=new URL('./',location.href);const owner=playlist.songs.some(s=>s.id===song.id)?playlist:data.playlists.find(p=>p.songs.some(s=>s.id===song.id));u.searchParams.set('playlist',owner.id);u.searchParams.set('song',song.id);u.searchParams.set('t',Math.floor(audio.currentTime));return u;}
 async function copy(text,message){try{await navigator.clipboard.writeText(text);status(message);}catch(e){window.prompt('Copy this:',text);}}
+$('share-song').onclick=()=>{const u=shareURL();u.searchParams.delete('t');copy(u.href,'Song link copied');};
 $('share').onclick=()=>copy(shareURL().href,`Link copied at ${seconds(audio.currentTime)}`);
 $('embed').onclick=()=>{const u=new URL('./',location.href);u.searchParams.set('playlist',playlist.id);u.searchParams.set('embed','1');copy(`<iframe src="${u.href.replaceAll('&','&amp;')}" title="Song Player" width="100%" height="600" style="max-width:440px;border:0" allow="autoplay; clipboard-write"></iframe>`,'Embed code copied');};
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;});
