@@ -87,7 +87,7 @@ async function selectSong(s, autoplay = false, time = undefined) {
   if (blob) objectURL=URL.createObjectURL(blob);
   audio.src=objectURL || urlFor(s);
   audio.load();
-  if ('mediaSession' in navigator) navigator.mediaSession.metadata=new MediaMetadata({title:s.name,artist:'Song Player',album:playlist.name});
+  if ('mediaSession' in navigator) navigator.mediaSession.metadata=new MediaMetadata({title:s.name,artist:'Wiener Dawg playah',album:playlist.name});
   await render();
   if (autoplay) await play();
 }
@@ -124,14 +124,14 @@ $('forward').onclick=()=>audio.currentTime=Math.min(audio.duration || 0,audio.cu
 $('seek').oninput=()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number($('seek').value);};
 audio.onloadedmetadata=()=>{audio.currentTime=Math.min(pendingTime,Number.isFinite(audio.duration)?audio.duration:pendingTime);pendingTime=0;$('seek').max=audio.duration || 0;$('duration').textContent=seconds(audio.duration);};
 audio.ontimeupdate=()=>{$('seek').value=audio.currentTime;$('elapsed').textContent=seconds(audio.currentTime);};
-audio.onplay=()=>{$('play').classList.add('is-playing');$('play').setAttribute('aria-label','Pause');};
-audio.onpause=()=>{$('play').classList.remove('is-playing');$('play').setAttribute('aria-label','Play');};
+audio.onplay=()=>{$('play-symbol').setAttribute('d','M6 5h4v14H6zM14 5h4v14h-4z');$('play').setAttribute('aria-label','Pause');};
+audio.onpause=()=>{$('play-symbol').setAttribute('d','M8 5l11 7-11 7z');$('play').setAttribute('aria-label','Play');};
 audio.onended=()=>move(1);audio.onerror=()=>status('This song could not load. Connect to the internet or save it offline first.');
 function shareURL(){const u=new URL('./',location.href);const owner=playlist.songs.some(s=>s.id===song.id)?playlist:data.playlists.find(p=>p.songs.some(s=>s.id===song.id));u.searchParams.set('playlist',owner.id);u.searchParams.set('song',song.id);u.searchParams.set('t',Math.floor(audio.currentTime));return u;}
 async function copy(text,message){try{await navigator.clipboard.writeText(text);status(message);}catch(e){window.prompt('Copy this:',text);}}
 $('share-song').onclick=()=>{const u=shareURL();u.searchParams.delete('t');copy(u.href,'Song link copied');};
 $('share').onclick=()=>copy(shareURL().href,`Link copied at ${seconds(audio.currentTime)}`);
-$('embed').onclick=()=>{const u=new URL('./',location.href);u.searchParams.set('playlist',playlist.id);u.searchParams.set('embed','1');copy(`<iframe src="${u.href.replaceAll('&','&amp;')}" title="Song Player" width="100%" height="600" style="max-width:440px;border:0" allow="autoplay; clipboard-write"></iframe>`,'Embed code copied');};
+$('embed').onclick=()=>{const u=new URL('./',location.href);u.searchParams.set('playlist',playlist.id);u.searchParams.set('embed','1');copy(`<iframe src="${u.href.replaceAll('&','&amp;')}" title="Wiener Dawg playah" width="100%" height="600" style="border:0" allow="autoplay; clipboard-write"></iframe>`,'Embed code copied');};
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;});
 $('install').onclick=async()=>{if(installPrompt){await installPrompt.prompt();installPrompt=null;}else $('help').showModal();};$('close').onclick=()=>$('help').close();
 window.addEventListener('online',()=>load());window.addEventListener('offline',()=>status('Offline · playing saved songs'));
