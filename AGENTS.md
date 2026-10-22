@@ -8,4 +8,4 @@ After changing application code, bump the SHELL cache version in sw.js. Do not c
 
 Run node --check app.js and node --check sw.js. Check that relative audio paths and manifest icons exist. Verify playback, timestamp links, playlist selection, and offline saving in a browser when available.
 
-The user manages this project through the originating Codex chat. Commit and push requested playlist updates to main, then check the Pages deployment. Do not delete audio files still referenced by any playlist.
+The user manages this project through the originating Codex chat. Show changes in the local preview before pushing. Wait for Jesse to approve publishing, then commit and push to main and check the Pages deployment. Do not delete audio files still referenced by any playlist.
