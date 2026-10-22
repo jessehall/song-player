@@ -35,3 +35,6 @@ header{padding-top:max(10px,env(safe-area-inset-top));padding-bottom:10px}
 .controls{margin:8px 0 10px}
 .sharing{gap:10px}.sharing button{min-height:36px;padding:7px 8px}
 footer{padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom));min-height:38px}
+
+/* Separate playback from sharing actions. */
+.controls{margin-top:12px;margin-bottom:24px}.sharing{padding-top:4px}.player{padding-bottom:14px}
