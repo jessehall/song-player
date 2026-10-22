@@ -47,7 +47,7 @@ async function load(initial = false) {
         playlist = data.playlists.find(p => p.songs.some(s => s.id === target)) || playlist;
         $('playlist').value = playlist.id;
       }
-      await selectSong(playlist.songs.find(s => s.id === target) || playlist.songs[0], false, Math.max(0, Number(params.get('t')) || 0));
+      await selectSong(playlist.songs.find(s => s.id === target) || playlist.songs[0], false, params.has('t') ? Math.max(0, Number(params.get('t')) || 0) : undefined);
     } else if (song) {
       const updated = data.playlists.flatMap(p => p.songs).find(s => s.id === song.id);
       if (!updated) await selectSong(playlist.songs[0]);
@@ -74,10 +74,10 @@ async function render() {
   for (const id of ['play','seek','previous','next','back','forward','share']) $(id).disabled = !song;
 }
 let selection = 0;
-async function selectSong(s, autoplay = false, time = 0) {
+async function selectSong(s, autoplay = false, time = undefined) {
   const token = ++selection;
   audio.pause();
-  song=s; pendingTime=time;
+  song=s; pendingTime=time ?? Math.max(0, Number(s?.start) || 0);
   if (objectURL) {URL.revokeObjectURL(objectURL);objectURL=null;}
   $('title').textContent=s?.name || 'Choose a song';
   if (!s) {audio.removeAttribute('src');audio.load();await render();return;}

@@ -7,7 +7,8 @@
         {
           "id": "animal-telep",
           "name": "Animal Telep",
-          "url": "audio/animal-telep.mp3"
+          "url": "audio/XDS-animal-telep.mp3",
+          "start": 359
         }
       ]
     },
