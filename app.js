@@ -5,7 +5,19 @@ let data, playlist, song, objectURL, pendingTime = 0, installPrompt, syncing = f
 let saved = JSON.parse(localStorage.getItem('saved-playlists') || '[]');
 const params = new URLSearchParams(location.search);
 if (params.get('embed') === '1') document.body.classList.add('embedded');
-const status = text => $('status').textContent = text;
+const status = text => { $('status').textContent = text; $('summary').title = text; };
+const standalone = window.matchMedia('(display-mode: standalone)');
+const isInstalled = () => standalone.matches || navigator.standalone === true;
+function updateTopButton() {
+  const offline = !navigator.onLine;
+  const installed = isInstalled();
+  $('install').textContent = offline ? 'Offline' : installed ? (syncing ? 'Saving…' : saved.includes(playlist?.id) ? '✓ Saved' : '↓ Save offline') : 'Install';
+  $('install').disabled = offline || (installed && (syncing || !playlist));
+  $('save').hidden = installed || offline;
+  if (playlist) $('summary').textContent = `${playlist.songs.length} songs${offline ? ' · Offline' : ''}`;
+}
+standalone.addEventListener('change', updateTopButton);
+window.addEventListener('appinstalled', updateTopButton);
 const seconds = value => { const n = Math.max(0, Math.floor(Number(value) || 0)); return `${Math.floor(n / 60)}:${String(n % 60).padStart(2, '0')}`; };
 const urlFor = s => new URL(s.url, location.href).href;
 function validData(d) {
@@ -59,7 +71,7 @@ async function load(initial = false) {
   } catch(e) {status(`Could not load playlists: ${e.message}`);}
 }
 async function render() {
-  $('summary').textContent = `${playlist.songs.length} ${playlist.songs.length === 1 ? 'song' : 'songs'}`;
+  updateTopButton();
   $('save').textContent = saved.includes(playlist.id) ? '✓ Saved · Remove' : '↓ Save offline';
   const cache = await caches.open(AUDIO_CACHE);
   const nodes = await Promise.all(playlist.songs.map(async (s,i) => {
@@ -71,7 +83,7 @@ async function render() {
   }));
   if (!nodes.length) { const p=document.createElement('p');p.textContent='No songs here yet.';nodes.push(p); }
   $('tracks').replaceChildren(...nodes);
-  for (const id of ['play','seek','previous','next','back','forward','share','share-song']) $(id).disabled = !song;
+  for (const id of ['play','seek','previous','next','back','forward']) $(id).disabled = !song;
 }
 let selection = 0;
 async function selectSong(s, autoplay = false, time = undefined) {
@@ -95,7 +107,7 @@ async function play(){try{await audio.play();}catch(e){status('Tap Play to start
 function move(delta) { const index=playlist.songs.findIndex(s => s.id===song?.id); const s=playlist.songs[(index+delta+playlist.songs.length)%playlist.songs.length];if(s)selectSong(s,true); }
 async function syncSaved() {
   if (syncing || !data) return;
-  syncing=true; $('save').disabled=true;
+  syncing=true; $('save').disabled=true; updateTopButton();
   try {
     const cache=await caches.open(AUDIO_CACHE);
     const required=new Map(data.playlists.filter(p=>saved.includes(p.id)).flatMap(p=>p.songs).map(s=>[urlFor(s),s]));
@@ -112,11 +124,10 @@ async function syncSaved() {
     status(failures ? `${failures} song(s) could not save. Refresh to retry.` : navigator.onLine ? 'Up to date' : 'Offline · playing saved songs');
     await render();
   } catch(e){status('Offline storage unavailable or full. Try freeing space.');}
-  finally{syncing=false;$('save').disabled=false;}
+  finally{syncing=false;$('save').disabled=false;updateTopButton();}
 }
 $('playlist').onchange=async()=>{playlist=data.playlists.find(p=>p.id===$('playlist').value);await render();};
 $('save').onclick=async()=>{const id=playlist.id;if(saved.includes(id))saved=saved.filter(x=>x!==id);else{saved.push(id);navigator.storage?.persist?.().catch(()=>{});}localStorage.setItem('saved-playlists',JSON.stringify(saved));await syncSaved();};
-$('refresh').onclick=()=>load();
 $('play').onclick=()=>audio.paused?play():audio.pause();
 $('previous').onclick=()=>move(-1);$('next').onclick=()=>move(1);
 $('back').onclick=()=>audio.currentTime=Math.max(0,audio.currentTime-10);
@@ -129,14 +140,12 @@ audio.onpause=()=>{$('play-symbol').setAttribute('d','M8 5l11 7-11 7z');$('play'
 audio.onended=()=>move(1);audio.onerror=()=>status('This song could not load. Connect to the internet or save it offline first.');
 function shareURL(){const u=new URL('./',location.href);const owner=playlist.songs.some(s=>s.id===song.id)?playlist:data.playlists.find(p=>p.songs.some(s=>s.id===song.id));u.searchParams.set('playlist',owner.id);u.searchParams.set('song',song.id);u.searchParams.set('t',Math.floor(audio.currentTime));return u;}
 async function copy(text,message){try{await navigator.clipboard.writeText(text);status(message);}catch(e){window.prompt('Copy this:',text);}}
-$('share-song').onclick=()=>{const u=shareURL();u.searchParams.delete('t');copy(u.href,'Song link copied');};
-$('share').onclick=()=>copy(shareURL().href,`Link copied at ${seconds(audio.currentTime)}`);
-$('embed').onclick=()=>{const u=new URL('./',location.href);u.searchParams.set('playlist',playlist.id);u.searchParams.set('embed','1');copy(`<iframe src="${u.href.replaceAll('&','&amp;')}" title="Wiener Dawg playah" width="100%" height="600" style="border:0" allow="autoplay; clipboard-write"></iframe>`,'Embed code copied');};
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;});
-$('install').onclick=async()=>{if(installPrompt){await installPrompt.prompt();installPrompt=null;}else $('help').showModal();};$('close').onclick=()=>$('help').close();
-window.addEventListener('online',()=>load());window.addEventListener('offline',()=>status('Offline · playing saved songs'));
+$('install').onclick=async()=>{if(isInstalled()){if(!saved.includes(playlist.id)){$('save').click();}else{await syncSaved();}return;}if(installPrompt){await installPrompt.prompt();installPrompt=null;}else $('help').showModal();};$('close').onclick=()=>$('help').close();
+window.addEventListener('online',()=>load());window.addEventListener('offline',()=>{updateTopButton();status('Offline · playing saved songs');});
 if ('mediaSession' in navigator) {for (const [name,fn] of Object.entries({play,pause:()=>audio.pause(),previoustrack:()=>move(-1),nexttrack:()=>move(1),seekto:d=>audio.currentTime=d.seekTime}))try{navigator.mediaSession.setActionHandler(name,fn);}catch(e){}}
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>status('Offline app setup failed. Refresh to retry.'));
+updateTopButton();
 load(true);
 
 // Close the install guide only when the tap lands outside its bounds.
