@@ -25,3 +25,5 @@ Run `python3 -m http.server 8080` here and visit localhost:8080. Service workers
 Optional song field `start` sets the default starting position in seconds. Explicit timestamp links override it.
 
 To rename tracks manually, click Edit titles in the player, sign into GitHub, change the song name fields in playlists.json, and Commit changes. Keep id and url fields unchanged when only renaming.
+
+Playlist and title changes are checked every minute while visible, when returning to the app, and when reconnecting. Current playback continues for unchanged audio URLs. GitHub Pages must finish publishing before changes appear.

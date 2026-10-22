@@ -145,3 +145,17 @@ $('help').addEventListener('click', event => {
   const bounds = $('help').getBoundingClientRect();
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) $('help').close();
 });
+
+// Sync playlist edits while the player is visible without restarting playback.
+let autoRefreshRunning = false;
+let lastAutoRefresh = 0;
+async function autoRefresh() {
+  if (document.visibilityState !== 'visible' || !navigator.onLine || autoRefreshRunning || syncing || Date.now() - lastAutoRefresh < 10000) return;
+  autoRefreshRunning = true;
+  lastAutoRefresh = Date.now();
+  try { await load(); }
+  finally { autoRefreshRunning = false; }
+}
+setInterval(autoRefresh, 60000);
+document.addEventListener('visibilitychange', autoRefresh);
+window.addEventListener('focus', autoRefresh);
