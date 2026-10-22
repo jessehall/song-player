@@ -64,6 +64,11 @@
           "id": "robot-hound",
           "name": "Robot Hound",
           "url": "audio/robot-hound.mp3"
+        },
+        {
+          "id": "wishes-demo",
+          "name": "Wishes (Demo)",
+          "url": "audio/wishes-demo.mp3"
         }
       ]
     },
