@@ -9,6 +9,66 @@
           "name": "Animal Telep",
           "url": "audio/XDS-animal-telep.mp3",
           "start": 359
+        },
+        {
+          "id": "animal-telepathy-sept-10th-animal-telepathy",
+          "name": "Animal Telepathy (Sept 10)",
+          "url": "audio/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3"
+        },
+        {
+          "id": "animal-telepathy-aug-4th",
+          "name": "Animal Telepathy (Aug 4)",
+          "url": "audio/ANIMAL-TELEPATHY-aug-4th.mp3"
+        },
+        {
+          "id": "moon-vibin",
+          "name": "Moon Vibin",
+          "url": "audio/MOON-VIBIN.mp3"
+        },
+        {
+          "id": "phasor-breakdown-oct8th",
+          "name": "Phasor Breakdown (Oct 8)",
+          "url": "audio/PHASOR-BREAKDOWN-oct8th.mp3"
+        },
+        {
+          "id": "sept-10th-fishermans-friend",
+          "name": "Fisherman's Friend (Sept 10)",
+          "url": "audio/Sept-10th-fishermans-friend.mp3"
+        },
+        {
+          "id": "sept-10th-surfer-parking",
+          "name": "Surfer Parking (Sept 10)",
+          "url": "audio/Sept-10th-surfer-parking.mp3"
+        },
+        {
+          "id": "wolf-traps",
+          "name": "Wolf Traps",
+          "url": "audio/WOLF-TRAPS.mp3"
+        },
+        {
+          "id": "xds-mnt-wishes-demo",
+          "name": "Wishes (Demo)",
+          "url": "audio/XDS_MNT_Wishes_DEMO.wav"
+        },
+        {
+          "id": "your-tears-are-my-ice-cream",
+          "name": "Your Tears Are My Ice Cream",
+          "url": "audio/YOUR TEARS ARE MY ICE CREAM.mp3"
+        },
+        {
+          "id": "beautiful-chains-march-17th-mix2",
+          "name": "Beautiful Chains (March 17, Mix 2)",
+          "url": "audio/beautiful-chains-march-17th-mix2.mp3"
+        },
+        {
+          "id": "fishermans-redo",
+          "name": "Fisherman's Redo",
+          "url": "audio/fishermans-redo.mp3"
+        },
+        {
+          "id": "robot-hound",
+          "name": "Robot Hound",
+          "url": "audio/robot-hound.mp3"
         }
       ]
     },
