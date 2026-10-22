@@ -6,28 +6,28 @@
       "songs": [
         {
           "id": "animal-telep",
-          "name": "Animal Telep",
+          "name": "Animal Telepathy (shoko) ending",
           "url": "audio/XDS-animal-telep.mp3",
           "start": 359
         },
         {
           "id": "animal-telepathy-sept-10th-animal-telepathy",
-          "name": "Animal Telepathy (Sept 10)",
+          "name": "Animal Telepathy (Sept 10) drum machine",
           "url": "audio/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3"
         },
         {
           "id": "animal-telepathy-aug-4th",
-          "name": "Animal Telepathy (Aug 4)",
+          "name": "Animal Telepathy (Aug 4) drum machine",
           "url": "audio/ANIMAL-TELEPATHY-aug-4th.mp3"
         },
         {
           "id": "moon-vibin",
-          "name": "Moon Vibin",
+          "name": "Moon Vibin drum machine",
           "url": "audio/MOON-VIBIN.mp3"
         },
         {
           "id": "phasor-breakdown-oct8th",
-          "name": "Phasor Breakdown (Oct 8)",
+          "name": "Phasor Breakdown (Oct 8) bare bones drum machine",
           "url": "audio/PHASOR-BREAKDOWN-oct8th.mp3"
         },
         {
