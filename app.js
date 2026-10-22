@@ -138,3 +138,10 @@ window.addEventListener('online',()=>load());window.addEventListener('offline',(
 if ('mediaSession' in navigator) {for (const [name,fn] of Object.entries({play,pause:()=>audio.pause(),previoustrack:()=>move(-1),nexttrack:()=>move(1),seekto:d=>audio.currentTime=d.seekTime}))try{navigator.mediaSession.setActionHandler(name,fn);}catch(e){}}
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>status('Offline app setup failed. Refresh to retry.'));
 load(true);
+
+// Close the install guide only when the tap lands outside its bounds.
+$('help').addEventListener('click', event => {
+  if (event.target !== $('help')) return;
+  const bounds = $('help').getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) $('help').close();
+});
