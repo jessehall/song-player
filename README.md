@@ -23,3 +23,5 @@ Save offline downloads the selected playlist. Selected playlists sync on opening
 Run `python3 -m http.server 8080` here and visit localhost:8080. Service workers require HTTPS or localhost. Change the shell cache version in sw.js after app changes. Test offline in the installed app and verify audio seeking.
 
 Optional song field `start` sets the default starting position in seconds. Explicit timestamp links override it.
+
+To rename tracks manually, click Edit titles in the player, sign into GitHub, change the song name fields in playlists.json, and Commit changes. Keep id and url fields unchanged when only renaming.

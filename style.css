@@ -8,3 +8,5 @@ button{-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:trans
 dialog{width:calc(100% - 28px);max-width:370px;max-height:85dvh;overflow-y:auto}dialog h2{margin-top:0}.install-steps{padding-left:22px}.install-steps li+li{margin-top:22px}.install-steps img{display:block;width:100%;height:auto;border-radius:10px}.install-steps p{margin:10px 0}#close{width:100%;margin-top:20px}
 
 body{padding:0;background:#fafbf7}main{width:100%;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none}body.embedded main{border-radius:0}.controls{gap:clamp(8px,3vw,24px)}header,.library,.player,footer{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}footer{padding-bottom:max(10px,env(safe-area-inset-bottom))}
+
+.edit-titles{color:inherit;text-decoration:underline;white-space:nowrap;padding:10px 2px}footer #status{flex:1}footer{flex-wrap:wrap}
