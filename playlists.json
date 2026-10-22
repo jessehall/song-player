@@ -1,0 +1,20 @@
+{
+  "playlists": [
+    {
+      "id": "demos",
+      "name": "Demos",
+      "songs": [
+        {
+          "id": "animal-telep",
+          "name": "Animal Telep",
+          "url": "audio/animal-telep.mp3"
+        }
+      ]
+    },
+    {
+      "id": "rehearsal",
+      "name": "Rehearsal",
+      "songs": []
+    }
+  ]
+}
