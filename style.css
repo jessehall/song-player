@@ -38,3 +38,10 @@ footer{padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom));min-h
 
 /* Separate playback from sharing actions. */
 .controls{margin-top:12px;margin-bottom:24px}.sharing{padding-top:4px}.player{padding-bottom:14px}
+
+/* Keep the dropdown chevron consistently inset on Safari and other browsers. */
+.toolbar select{-webkit-appearance:none;appearance:none;padding-left:12px;padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23192522' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px 16px}
+.toolbar{align-items:stretch}.toolbar button{padding-left:12px;padding-right:12px}
+.now>div{min-width:0}.now h1{overflow-wrap:anywhere}.brand{min-width:0}.brand b{line-height:1.25}
+.sharing button{display:flex;align-items:center;justify-content:center;min-height:40px}
+@media(max-width:360px){header,.library,.player,footer{padding-left:12px;padding-right:12px}.toolbar{gap:8px}.toolbar button{padding-left:9px;padding-right:9px}.brand b{font-size:14px}.sharing{gap:8px}}
