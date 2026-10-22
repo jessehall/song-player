@@ -124,8 +124,8 @@ $('forward').onclick=()=>audio.currentTime=Math.min(audio.duration || 0,audio.cu
 $('seek').oninput=()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number($('seek').value);};
 audio.onloadedmetadata=()=>{audio.currentTime=Math.min(pendingTime,Number.isFinite(audio.duration)?audio.duration:pendingTime);pendingTime=0;$('seek').max=audio.duration || 0;$('duration').textContent=seconds(audio.duration);};
 audio.ontimeupdate=()=>{$('seek').value=audio.currentTime;$('elapsed').textContent=seconds(audio.currentTime);};
-audio.onplay=()=>{$('play').textContent='Ⅱ';$('play').setAttribute('aria-label','Pause');};
-audio.onpause=()=>{$('play').textContent='▶';$('play').setAttribute('aria-label','Play');};
+audio.onplay=()=>{$('play').classList.add('is-playing');$('play').setAttribute('aria-label','Pause');};
+audio.onpause=()=>{$('play').classList.remove('is-playing');$('play').setAttribute('aria-label','Play');};
 audio.onended=()=>move(1);audio.onerror=()=>status('This song could not load. Connect to the internet or save it offline first.');
 function shareURL(){const u=new URL('./',location.href);const owner=playlist.songs.some(s=>s.id===song.id)?playlist:data.playlists.find(p=>p.songs.some(s=>s.id===song.id));u.searchParams.set('playlist',owner.id);u.searchParams.set('song',song.id);u.searchParams.set('t',Math.floor(audio.currentTime));return u;}
 async function copy(text,message){try{await navigator.clipboard.writeText(text);status(message);}catch(e){window.prompt('Copy this:',text);}}
