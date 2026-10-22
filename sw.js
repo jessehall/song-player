@@ -1,4 +1,4 @@
-const SHELL='song-player-shell-v6';
+const SHELL='song-player-shell-v7';
 const FILES=['./','index.html','style.css?v=6','app.js?v=6','manifest.webmanifest','icon.svg','icon-192.png','icon-512.png','images/ios-share.png','images/ios-home-screen.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('song-player-shell-')&&k!==SHELL).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
