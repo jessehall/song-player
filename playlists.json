@@ -2,7 +2,7 @@
   "playlists": [
     {
       "id": "demos",
-      "name": "Demos",
+      "name": "Oct 29 Recordings",
       "songs": [
         {
           "id": "fishermans-friend-oct-29th",
@@ -12,16 +12,6 @@
             "integratedLufs": -14.54,
             "truePeakDbtp": 0.57,
             "gainDb": -3.46
-          }
-        },
-        {
-          "id": "robot-hound-oct-28th",
-          "name": "Robot Hound (Oct 28)",
-          "url": "audio/robot-hound-oct-28th.mp3",
-          "leveling": {
-            "integratedLufs": -11.42,
-            "truePeakDbtp": 1.22,
-            "gainDb": -6.58
           }
         },
         {
@@ -42,6 +32,22 @@
             "integratedLufs": -15.17,
             "truePeakDbtp": 0.55,
             "gainDb": -2.83
+          }
+        }
+      ]
+    },
+    {
+      "id": "jesse-demos",
+      "name": "Jesse Demos",
+      "songs": [
+        {
+          "id": "robot-hound-oct-28th",
+          "name": "Robot Hound (Oct 28)",
+          "url": "audio/robot-hound-oct-28th.mp3",
+          "leveling": {
+            "integratedLufs": -11.42,
+            "truePeakDbtp": 1.22,
+            "gainDb": -6.58
           }
         },
         {
