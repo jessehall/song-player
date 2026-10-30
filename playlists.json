@@ -5,6 +5,26 @@
       "name": "Demos",
       "songs": [
         {
+          "id": "fishermans-friend-oct-29th",
+          "name": "Fisherman's Friend (Oct 29)",
+          "url": "audio/oct-29th-fishermans-friend.mp3"
+        },
+        {
+          "id": "robot-hound-oct-28th",
+          "name": "Robot Hound (Oct 28)",
+          "url": "audio/robot-hound-oct-28th.mp3"
+        },
+        {
+          "id": "body-in-cloud-oct-29th",
+          "name": "Body in Cloud (Oct 29)",
+          "url": "audio/oct-29th-body-in-cloud.mp3"
+        },
+        {
+          "id": "zeus-has-bolts-for-you-oct-29th",
+          "name": "Zeus Has Bolts for You (Oct 29)",
+          "url": "audio/oct-29th-Zeus-has-bolts-for-you.mp3"
+        },
+        {
           "id": "animal-telep",
           "name": "Animal Telepathy (shoko) ending",
           "url": "audio/XDS-animal-telep.mp3",
