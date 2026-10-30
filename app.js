@@ -1,5 +1,13 @@
 const $ = id => document.getElementById(id);
 const audio = $('audio');
+const leveler = new PlaybackLeveler(audio);
+function unlockLeveling() {
+  try { return leveler.unlock().catch(() => {}); } catch(e) { return Promise.resolve(); }
+}
+// Unlock Web Audio during the tap so iPhone can play subsequent tracks too.
+document.addEventListener('click', event => {
+  if (event.target.closest('#play, #previous, #next, .track')) unlockLeveling();
+}, true);
 const AUDIO_CACHE = 'song-player-audio-v1';
 let data, playlist, song, objectURL, pendingTime = 0, installPrompt, syncing = false;
 let saved = JSON.parse(localStorage.getItem('saved-playlists') || '[]');
@@ -64,7 +72,7 @@ async function load(initial = false) {
       const updated = data.playlists.flatMap(p => p.songs).find(s => s.id === song.id);
       if (!updated) await selectSong(playlist.songs[0]);
       else if (urlFor(updated) !== urlFor(song)) await selectSong(updated);
-      else {song = updated; $('title').textContent = song.name;}
+      else {song = updated; leveler.setTrack(song); $('title').textContent = song.name;}
     }
     await render();
     await syncSaved();
@@ -89,7 +97,7 @@ let selection = 0;
 async function selectSong(s, autoplay = false, time = undefined) {
   const token = ++selection;
   audio.pause();
-  song=s; pendingTime=time ?? Math.max(0, Number(s?.start) || 0);
+  song=s; leveler.setTrack(song); pendingTime=time ?? Math.max(0, Number(s?.start) || 0);
   if (objectURL) {URL.revokeObjectURL(objectURL);objectURL=null;}
   $('title').textContent=s?.name || 'Choose a song';
   if (!s) {audio.removeAttribute('src');audio.load();await render();return;}
@@ -103,7 +111,7 @@ async function selectSong(s, autoplay = false, time = undefined) {
   await render();
   if (autoplay) await play();
 }
-async function play(){try{await audio.play();}catch(e){status('Tap Play to start. Check your connection if this song is not saved.');}}
+async function play(){try{await unlockLeveling();await audio.play();}catch(e){status('Tap Play to start. Check your connection if this song is not saved.');}}
 function move(delta) { const index=playlist.songs.findIndex(s => s.id===song?.id); const s=playlist.songs[(index+delta+playlist.songs.length)%playlist.songs.length];if(s)selectSong(s,true); }
 async function syncSaved() {
   if (syncing || !data) return;
