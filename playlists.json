@@ -5,6 +5,36 @@
       "name": "Band Practice",
       "songs": [
         {
+          "id": "ken-beat-nov-12th",
+          "name": "Ken Beat (Nov 12)",
+          "url": "audio/ken-beat-Nov-12th.mp3",
+          "leveling": {
+            "integratedLufs": -14.69,
+            "truePeakDbtp": -0.2,
+            "gainDb": -3.31
+          }
+        },
+        {
+          "id": "sic-wik-nov-12th",
+          "name": "Sic Wik (Nov 12)",
+          "url": "audio/sic-wik-Nov-12th.mp3",
+          "leveling": {
+            "integratedLufs": -10.47,
+            "truePeakDbtp": 0.37,
+            "gainDb": -7.53
+          }
+        },
+        {
+          "id": "sic-wik-full-jam-nov-12th",
+          "name": "Sic Wik (Full Jam) (Nov 12)",
+          "url": "audio/sic-wik-full-jam-Nov-12th.mp3",
+          "leveling": {
+            "integratedLufs": -10.57,
+            "truePeakDbtp": 0.1,
+            "gainDb": -7.43
+          }
+        },
+        {
           "id": "fishermans-friend-oct-29th",
           "name": "Fisherman's Friend (Oct 29)",
           "url": "audio/oct-29th-fishermans-friend.mp3",
