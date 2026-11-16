@@ -53,3 +53,6 @@ footer{padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom));min-h
 .player{padding-top:6px;padding-bottom:max(4px,env(safe-area-inset-bottom))}.timeline{margin-top:4px}.controls{margin-top:2px;margin-bottom:0}
 
 .now #copy-link{margin-left:auto;flex:none;min-height:44px;padding:4px 9px;font-size:12px;white-space:nowrap}
+
+/* Lift the buttons visually without changing the timeline layout. */
+.controls{transform:translateY(-15px)}
