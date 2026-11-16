@@ -91,7 +91,7 @@ async function render() {
   }));
   if (!nodes.length) { const p=document.createElement('p');p.textContent='No songs here yet.';nodes.push(p); }
   $('tracks').replaceChildren(...nodes);
-  for (const id of ['play','seek','previous','next','back','forward']) $(id).disabled = !song;
+  for (const id of ['play','seek','previous','next','back','forward','copy-link']) $(id).disabled = !song;
 }
 let selection = 0;
 async function selectSong(s, autoplay = false, time = undefined) {
@@ -147,7 +147,21 @@ audio.onplay=()=>{$('play-symbol').setAttribute('d','M6 5h4v14H6zM14 5h4v14h-4z'
 audio.onpause=()=>{$('play-symbol').setAttribute('d','M8 5l11 7-11 7z');$('play').setAttribute('aria-label','Play');};
 audio.onended=()=>move(1);audio.onerror=()=>status('This song could not load. Connect to the internet or save it offline first.');
 function shareURL(){const u=new URL('./',location.href);const owner=playlist.songs.some(s=>s.id===song.id)?playlist:data.playlists.find(p=>p.songs.some(s=>s.id===song.id));u.searchParams.set('playlist',owner.id);u.searchParams.set('song',song.id);u.searchParams.set('t',Math.floor(audio.currentTime));return u;}
-async function copy(text,message){try{await navigator.clipboard.writeText(text);status(message);}catch(e){window.prompt('Copy this:',text);}}
+let copyFeedback;
+$('copy-link').onclick = async () => {
+  if (!song) return;
+  const link = shareURL();
+  const button = $('copy-link');
+  try {
+    await navigator.clipboard.writeText(link.href);
+    status(`Song link copied at ${seconds(link.searchParams.get('t'))}`);
+    button.textContent = 'Copied';
+    clearTimeout(copyFeedback);
+    copyFeedback = setTimeout(() => { button.textContent = 'Copy link'; }, 1800);
+  } catch {
+    window.prompt('Copy this song link:', link.href);
+  }
+};
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;});
 $('install').onclick=async()=>{if(isInstalled()){if(!saved.includes(playlist.id)){$('save').click();}else{await syncSaved();}return;}if(installPrompt){await installPrompt.prompt();installPrompt=null;}else $('help').showModal();};$('close').onclick=()=>$('help').close();
 window.addEventListener('online',()=>load());window.addEventListener('offline',()=>{updateTopButton();status('Offline · playing saved songs');});
