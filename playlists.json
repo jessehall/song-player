@@ -15,16 +15,6 @@
           }
         },
         {
-          "id": "sic-wik-nov-12th",
-          "name": "Sic Wik (Nov 12)",
-          "url": "audio/sic-wik-Nov-12th.mp3",
-          "leveling": {
-            "integratedLufs": -10.47,
-            "truePeakDbtp": 0.37,
-            "gainDb": -7.53
-          }
-        },
-        {
           "id": "sic-wik-full-jam-nov-12th",
           "name": "Sic Wik (Full Jam) (Nov 12)",
           "url": "audio/sic-wik-full-jam-Nov-12th.mp3",
