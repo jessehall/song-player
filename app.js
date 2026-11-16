@@ -57,7 +57,8 @@ async function load(initial = false) {
       status('Using your saved playlist');
     }
     data = d;
-    const id = initial ? params.get('playlist') : playlist?.id;
+    const preferred = localStorage.getItem('selected-playlist');
+    const id = initial ? (params.get('playlist') || preferred) : playlist?.id;
     playlist = data.playlists.find(p => p.id === id) || data.playlists[0];
     $('playlist').replaceChildren(...data.playlists.map(p => new Option(p.name,p.id)));
     $('playlist').value = playlist.id;
@@ -74,6 +75,7 @@ async function load(initial = false) {
       else if (urlFor(updated) !== urlFor(song)) await selectSong(updated);
       else {song = updated; leveler.setTrack(song); $('title').textContent = song.name;}
     }
+    if (initial) localStorage.setItem('selected-playlist', playlist.id);
     await render();
     await syncSaved();
   } catch(e) {status(`Could not load playlists: ${e.message}`);}
@@ -134,7 +136,14 @@ async function syncSaved() {
   } catch(e){status('Offline storage unavailable or full. Try freeing space.');}
   finally{syncing=false;$('save').disabled=false;updateTopButton();}
 }
-$('playlist').onchange=async()=>{playlist=data.playlists.find(p=>p.id===$('playlist').value);await render();};
+$('playlist').onchange=async()=>{playlist=data.playlists.find(p=>p.id===$('playlist').value);localStorage.setItem('selected-playlist', playlist.id);
+  // A manual switch replaces any shared-song URL so refresh keeps this choice.
+  const url = new URL(location.href);
+  url.searchParams.set('playlist', playlist.id);
+  url.searchParams.delete('song');
+  url.searchParams.delete('t');
+  history.replaceState(history.state, '', url);
+  await render();};
 $('save').onclick=async()=>{const id=playlist.id;if(saved.includes(id))saved=saved.filter(x=>x!==id);else{saved.push(id);navigator.storage?.persist?.().catch(()=>{});}localStorage.setItem('saved-playlists',JSON.stringify(saved));await syncSaved();};
 $('play').onclick=()=>audio.paused?play():audio.pause();
 $('previous').onclick=()=>move(-1);$('next').onclick=()=>move(1);
