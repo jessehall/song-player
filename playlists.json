@@ -57,6 +57,32 @@
       ]
     },
     {
+      "id": "jesse-gtr-vox-demos",
+      "name": "Jesse gtr vox demos",
+      "songs": [
+        {
+          "id": "juiceman-gtr-vox",
+          "name": "Juiceman",
+          "url": "audio/juiceman.mp3",
+          "leveling": {
+            "integratedLufs": -15.26,
+            "truePeakDbtp": -0.18,
+            "gainDb": -2.74
+          }
+        },
+        {
+          "id": "beautiful-chains-gtr-vox",
+          "name": "Beautiful Chains",
+          "url": "audio/beauitiful-chains.mp3",
+          "leveling": {
+            "integratedLufs": -12.42,
+            "truePeakDbtp": -0.18,
+            "gainDb": -5.58
+          }
+        }
+      ]
+    },
+    {
       "id": "jesse-demos",
       "name": "Jesse Demos",
       "songs": [
