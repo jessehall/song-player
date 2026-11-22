@@ -5,6 +5,16 @@
       "name": "Band Practice",
       "songs": [
         {
+          "id": "phasor-breakdown-nov-21",
+          "name": "Phasor Breakdown (Nov 21)",
+          "url": "audio/Phasor-Breakdown-nov-21.mp3",
+          "leveling": {
+            "integratedLufs": -14.09,
+            "truePeakDbtp": -0.23,
+            "gainDb": -3.91
+          }
+        },
+        {
           "id": "ken-beat-nov-12th",
           "name": "Ken Beat (Nov 12)",
           "url": "audio/ken-beat-Nov-12th.mp3",
