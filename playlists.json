@@ -7,62 +7,32 @@
         {
           "id": "phasor-breakdown-nov-21",
           "name": "Phasor Breakdown (Nov 21)",
-          "url": "audio/Phasor-Breakdown-nov-21.mp3",
-          "leveling": {
-            "integratedLufs": -14.09,
-            "truePeakDbtp": -0.23,
-            "gainDb": -3.91
-          }
+          "url": "audio/Phasor-Breakdown-nov-21.mp3"
         },
         {
           "id": "ken-beat-nov-12th",
           "name": "Ken Beat (Nov 12)",
-          "url": "audio/ken-beat-Nov-12th.mp3",
-          "leveling": {
-            "integratedLufs": -14.69,
-            "truePeakDbtp": -0.2,
-            "gainDb": -3.31
-          }
+          "url": "audio/ken-beat-Nov-12th.mp3"
         },
         {
           "id": "sic-wik-full-jam-nov-12th",
           "name": "Sic Wik (Full Jam) (Nov 12)",
-          "url": "audio/sic-wik-full-jam-Nov-12th.mp3",
-          "leveling": {
-            "integratedLufs": -10.57,
-            "truePeakDbtp": 0.1,
-            "gainDb": -7.43
-          }
+          "url": "audio/sic-wik-full-jam-Nov-12th.mp3"
         },
         {
           "id": "fishermans-friend-oct-29th",
           "name": "Fisherman's Friend (Oct 29)",
-          "url": "audio/oct-29th-fishermans-friend.mp3",
-          "leveling": {
-            "integratedLufs": -14.54,
-            "truePeakDbtp": 0.57,
-            "gainDb": -3.46
-          }
+          "url": "audio/oct-29th-fishermans-friend.mp3"
         },
         {
           "id": "body-in-cloud-oct-29th",
           "name": "Body in Cloud (Oct 29)",
-          "url": "audio/oct-29th-body-in-cloud.mp3",
-          "leveling": {
-            "integratedLufs": -16.26,
-            "truePeakDbtp": 0.12,
-            "gainDb": -1.74
-          }
+          "url": "audio/oct-29th-body-in-cloud.mp3"
         },
         {
           "id": "zeus-has-bolts-for-you-oct-29th",
           "name": "Zeus Has Bolts for You (Oct 29)",
-          "url": "audio/oct-29th-Zeus-has-bolts-for-you.mp3",
-          "leveling": {
-            "integratedLufs": -15.17,
-            "truePeakDbtp": 0.55,
-            "gainDb": -2.83
-          }
+          "url": "audio/oct-29th-Zeus-has-bolts-for-you.mp3"
         }
       ]
     },
@@ -73,22 +43,12 @@
         {
           "id": "juiceman-gtr-vox",
           "name": "Juiceman Human Animal",
-          "url": "audio/juiceman.mp3",
-          "leveling": {
-            "integratedLufs": -15.26,
-            "truePeakDbtp": -0.18,
-            "gainDb": -2.74
-          }
+          "url": "audio/juiceman.mp3"
         },
         {
           "id": "beautiful-chains-gtr-vox",
           "name": "Beautiful Chains",
-          "url": "audio/beauitiful-chains.mp3",
-          "leveling": {
-            "integratedLufs": -12.42,
-            "truePeakDbtp": -0.18,
-            "gainDb": -5.58
-          }
+          "url": "audio/beauitiful-chains.mp3"
         }
       ]
     },
@@ -99,143 +59,73 @@
         {
           "id": "robot-hound-oct-28th",
           "name": "Robot Hound (Oct 28)",
-          "url": "audio/robot-hound-oct-28th.mp3",
-          "leveling": {
-            "integratedLufs": -11.42,
-            "truePeakDbtp": 1.22,
-            "gainDb": -6.58
-          }
+          "url": "audio/robot-hound-oct-28th.mp3"
         },
         {
           "id": "animal-telep",
           "name": "Animal Telepathy (shoko) ending",
           "url": "audio/XDS-animal-telep.mp3",
-          "start": 359,
-          "leveling": {
-            "integratedLufs": -10.27,
-            "truePeakDbtp": 0.69,
-            "gainDb": -7.73
-          }
+          "start": 359
         },
         {
           "id": "animal-telepathy-sept-10th-animal-telepathy",
           "name": "Animal Telepathy (Sept 10 2026) drum machine",
-          "url": "audio/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3",
-          "leveling": {
-            "integratedLufs": -10.29,
-            "truePeakDbtp": 1.01,
-            "gainDb": -7.71
-          }
+          "url": "audio/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3"
         },
         {
           "id": "animal-telepathy-aug-4th",
           "name": "Animal Telepathy (Aug 4) drum machine",
-          "url": "audio/ANIMAL-TELEPATHY-aug-4th.mp3",
-          "leveling": {
-            "integratedLufs": -10.73,
-            "truePeakDbtp": 0.55,
-            "gainDb": -7.27
-          }
+          "url": "audio/ANIMAL-TELEPATHY-aug-4th.mp3"
         },
         {
           "id": "moon-vibin",
           "name": "Moon Vibin drum machine",
-          "url": "audio/MOON-VIBIN.mp3",
-          "leveling": {
-            "integratedLufs": -16.49,
-            "truePeakDbtp": -3.8,
-            "gainDb": -1.51
-          }
+          "url": "audio/MOON-VIBIN.mp3"
         },
         {
           "id": "phasor-breakdown-oct8th",
           "name": "Phasor Breakdown (Oct 8) bare bones drum machine",
-          "url": "audio/PHASOR-BREAKDOWN-oct8th.mp3",
-          "leveling": {
-            "integratedLufs": -7.41,
-            "truePeakDbtp": 1.15,
-            "gainDb": -10.59
-          }
+          "url": "audio/PHASOR-BREAKDOWN-oct8th.mp3"
         },
         {
           "id": "sept-10th-fishermans-friend",
           "name": "Fisherman's Friend (Sept 10)",
-          "url": "audio/Sept-10th-fishermans-friend.mp3",
-          "leveling": {
-            "integratedLufs": -9.43,
-            "truePeakDbtp": 0.84,
-            "gainDb": -8.57
-          }
+          "url": "audio/Sept-10th-fishermans-friend.mp3"
         },
         {
           "id": "sept-10th-surfer-parking",
           "name": "Surfer Parking (Sept 10)",
-          "url": "audio/Sept-10th-surfer-parking.mp3",
-          "leveling": {
-            "integratedLufs": -9.34,
-            "truePeakDbtp": 1.2,
-            "gainDb": -8.66
-          }
+          "url": "audio/Sept-10th-surfer-parking.mp3"
         },
         {
           "id": "wolf-traps",
           "name": "Wolf Traps",
-          "url": "audio/WOLF-TRAPS.mp3",
-          "leveling": {
-            "integratedLufs": -9.24,
-            "truePeakDbtp": 0.52,
-            "gainDb": -8.76
-          }
+          "url": "audio/WOLF-TRAPS.mp3"
         },
         {
           "id": "your-tears-are-my-ice-cream",
           "name": "Your Tears Are My Ice Cream",
-          "url": "audio/YOUR TEARS ARE MY ICE CREAM.mp3",
-          "leveling": {
-            "integratedLufs": -9.14,
-            "truePeakDbtp": 2.37,
-            "gainDb": -8.86
-          }
+          "url": "audio/YOUR TEARS ARE MY ICE CREAM.mp3"
         },
         {
           "id": "beautiful-chains-march-17th-mix2",
           "name": "Beautiful Chains (March 17, Mix 2) crappy take",
-          "url": "audio/beautiful-chains-march-17th-mix2.mp3",
-          "leveling": {
-            "integratedLufs": -9.62,
-            "truePeakDbtp": 1.05,
-            "gainDb": -8.38
-          }
+          "url": "audio/beautiful-chains-march-17th-mix2.mp3"
         },
         {
           "id": "fishermans-redo",
           "name": "Fisherman's Redo 2026",
-          "url": "audio/fishermans-redo.mp3",
-          "leveling": {
-            "integratedLufs": -14.01,
-            "truePeakDbtp": -0.02,
-            "gainDb": -3.99
-          }
+          "url": "audio/fishermans-redo.mp3"
         },
         {
           "id": "robot-hound",
           "name": "Robot Hound",
-          "url": "audio/robot-hound.mp3",
-          "leveling": {
-            "integratedLufs": -7.68,
-            "truePeakDbtp": 1.52,
-            "gainDb": -10.32
-          }
+          "url": "audio/robot-hound.mp3"
         },
         {
           "id": "wishes-demo",
           "name": "MNT Wishes",
-          "url": "audio/wishes-demo.mp3",
-          "leveling": {
-            "integratedLufs": -6.62,
-            "truePeakDbtp": 1.3,
-            "gainDb": -11.38
-          }
+          "url": "audio/wishes-demo.mp3"
         }
       ]
     },
@@ -244,9 +134,5 @@
       "name": "Rehearsal",
       "songs": []
     }
-  ],
-  "leveling": {
-    "targetLufs": -18.0,
-    "method": "EBU R128 integrated loudness; attenuation only"
-  }
+  ]
 }

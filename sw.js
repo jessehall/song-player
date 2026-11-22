@@ -1,5 +1,5 @@
-const SHELL='song-player-shell-v28';
-const FILES=['./','index.html','style.css?v=27','leveling.js?v=22','app.js?v=28','manifest.webmanifest','skull-headphones-straight-192.png','skull-headphones-straight-512.png','icon.svg','icon-192.png','icon-512.png','images/ios-share.png','images/ios-home-screen.png'];
+const SHELL='song-player-shell-v29';
+const FILES=['./','index.html','style.css?v=27','app.js?v=29','manifest.webmanifest','skull-headphones-straight-192.png','skull-headphones-straight-512.png','icon.svg','icon-192.png','icon-512.png','images/ios-share.png','images/ios-home-screen.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('song-player-shell-')&&k!==SHELL).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',e=>{

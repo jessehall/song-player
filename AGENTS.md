@@ -10,4 +10,4 @@ Run node --check app.js and node --check sw.js. Check that relative audio paths 
 
 The user manages this project through the originating Codex chat. Verify requested changes, then commit and push to main and check the Pages deployment. No local review or separate approval is needed unless Jesse asks for it. Do not delete audio files still referenced by any playlist.
 
-After adding/replacing audio or changing a default start time, run scripts/analyze-loudness.py to refresh loudness metadata for all tracks. Preserve original audio; volume leveling is applied during playback.
+Preserve original audio. Play recordings at their original level; do not add volume leveling or loudness processing.
