@@ -7,32 +7,38 @@
         {
           "id": "phasor-breakdown-nov-21",
           "name": "Phasor Breakdown (Nov 21)",
-          "url": "audio/Phasor-Breakdown-nov-21.mp3"
+          "url": "audio/Band Practice/Phasor-Breakdown-nov-21.mp3",
+          "duration": 246.048
         },
         {
           "id": "ken-beat-nov-12th",
           "name": "Ken Beat (Nov 12)",
-          "url": "audio/ken-beat-Nov-12th.mp3"
+          "url": "audio/Band Practice/ken-beat-Nov-12th.mp3",
+          "duration": 18.048
         },
         {
           "id": "sic-wik-full-jam-nov-12th",
           "name": "Sic Wik (Full Jam) (Nov 12)",
-          "url": "audio/sic-wik-full-jam-Nov-12th.mp3"
+          "url": "audio/Band Practice/sic-wik-full-jam-Nov-12th.mp3",
+          "duration": 318.048
         },
         {
           "id": "fishermans-friend-oct-29th",
           "name": "Fisherman's Friend (Oct 29)",
-          "url": "audio/oct-29th-fishermans-friend.mp3"
+          "url": "audio/Band Practice/oct-29th-fishermans-friend.mp3",
+          "duration": 233.016
         },
         {
           "id": "body-in-cloud-oct-29th",
           "name": "Body in Cloud (Oct 29)",
-          "url": "audio/oct-29th-body-in-cloud.mp3"
+          "url": "audio/Band Practice/oct-29th-body-in-cloud.mp3",
+          "duration": 199.992
         },
         {
           "id": "zeus-has-bolts-for-you-oct-29th",
           "name": "Zeus Has Bolts for You (Oct 29)",
-          "url": "audio/oct-29th-Zeus-has-bolts-for-you.mp3"
+          "url": "audio/Band Practice/oct-29th-Zeus-has-bolts-for-you.mp3",
+          "duration": 180.048
         }
       ]
     },
@@ -43,12 +49,14 @@
         {
           "id": "juiceman-gtr-vox",
           "name": "Juiceman Human Animal",
-          "url": "audio/juiceman.mp3"
+          "url": "audio/Jesse gtr vox demos/juiceman.mp3",
+          "duration": 226.056
         },
         {
           "id": "beautiful-chains-gtr-vox",
           "name": "Beautiful Chains",
-          "url": "audio/beauitiful-chains.mp3"
+          "url": "audio/Jesse gtr vox demos/beauitiful-chains.mp3",
+          "duration": 300.048
         }
       ]
     },
@@ -59,79 +67,93 @@
         {
           "id": "robot-hound-oct-28th",
           "name": "Robot Hound (Oct 28)",
-          "url": "audio/robot-hound-oct-28th.mp3"
+          "url": "audio/Jesse Demos/robot-hound-oct-28th.mp3",
+          "duration": 452.064
         },
         {
           "id": "animal-telep",
           "name": "Animal Telepathy (shoko) ending",
-          "url": "audio/XDS-animal-telep.mp3",
-          "start": 359
+          "url": "audio/Jesse Demos/XDS-animal-telep.mp3",
+          "start": 359,
+          "duration": 460.056
         },
         {
           "id": "animal-telepathy-sept-10th-animal-telepathy",
           "name": "Animal Telepathy (Sept 10 2026) drum machine",
-          "url": "audio/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3"
+          "url": "audio/Jesse Demos/ANIMAL-TELEPATHY-Sept-10th-Animal-Telepathy.mp3",
+          "duration": 328.2
         },
         {
           "id": "animal-telepathy-aug-4th",
           "name": "Animal Telepathy (Aug 4) drum machine",
-          "url": "audio/ANIMAL-TELEPATHY-aug-4th.mp3"
+          "url": "audio/Jesse Demos/ANIMAL-TELEPATHY-aug-4th.mp3",
+          "duration": 433.56
         },
         {
           "id": "moon-vibin",
           "name": "Moon Vibin drum machine",
-          "url": "audio/MOON-VIBIN.mp3"
+          "url": "audio/Jesse Demos/MOON-VIBIN.mp3",
+          "duration": 331.944
         },
         {
           "id": "phasor-breakdown-oct8th",
           "name": "Phasor Breakdown (Oct 8) bare bones drum machine",
-          "url": "audio/PHASOR-BREAKDOWN-oct8th.mp3"
+          "url": "audio/Jesse Demos/PHASOR-BREAKDOWN-oct8th.mp3",
+          "duration": 386.544
         },
         {
           "id": "sept-10th-fishermans-friend",
           "name": "Fisherman's Friend (Sept 10)",
-          "url": "audio/Sept-10th-fishermans-friend.mp3"
+          "url": "audio/Jesse Demos/Sept-10th-fishermans-friend.mp3",
+          "duration": 298.056
         },
         {
           "id": "sept-10th-surfer-parking",
           "name": "Surfer Parking (Sept 10)",
-          "url": "audio/Sept-10th-surfer-parking.mp3"
+          "url": "audio/Jesse Demos/Sept-10th-surfer-parking.mp3",
+          "duration": 307.704
         },
         {
           "id": "wolf-traps",
           "name": "Wolf Traps",
-          "url": "audio/WOLF-TRAPS.mp3"
+          "url": "audio/Jesse Demos/WOLF-TRAPS.mp3",
+          "duration": 228.528
         },
         {
           "id": "your-tears-are-my-ice-cream",
           "name": "Your Tears Are My Ice Cream",
-          "url": "audio/YOUR TEARS ARE MY ICE CREAM.mp3"
+          "url": "audio/Jesse Demos/YOUR TEARS ARE MY ICE CREAM.mp3",
+          "duration": 223.582
         },
         {
           "id": "beautiful-chains-march-17th-mix2",
           "name": "Beautiful Chains (March 17, Mix 2) crappy take",
-          "url": "audio/beautiful-chains-march-17th-mix2.mp3"
+          "url": "audio/Jesse Demos/beautiful-chains-march-17th-mix2.mp3",
+          "duration": 285.648
         },
         {
           "id": "fishermans-redo",
           "name": "Fisherman's Redo 2026",
-          "url": "audio/fishermans-redo.mp3"
+          "url": "audio/Jesse Demos/fishermans-redo.mp3",
+          "duration": 281.304
         },
         {
           "id": "robot-hound",
           "name": "Robot Hound",
-          "url": "audio/robot-hound.mp3"
+          "url": "audio/Jesse Demos/robot-hound.mp3",
+          "duration": 399.912
         },
         {
           "id": "wishes-demo",
           "name": "MNT Wishes",
-          "url": "audio/wishes-demo.mp3"
+          "url": "audio/Jesse Demos/wishes-demo.mp3",
+          "duration": 216.973
         }
       ]
     },
     {
-      "id": "rehearsal",
-      "name": "Rehearsal",
+      "id": "best-demos",
+      "name": "Best Demos",
       "songs": []
     }
   ]

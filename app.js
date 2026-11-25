@@ -14,11 +14,19 @@ function updateTopButton() {
   $('install').textContent = offline ? 'Offline' : installed ? (syncing ? 'Saving…' : saved.includes(playlist?.id) ? '✓ Saved' : '↓ Save offline') : 'Install';
   $('install').disabled = offline || (installed && (syncing || !playlist));
   $('save').hidden = installed || offline;
-  if (playlist) $('summary').textContent = `${playlist.songs.length} songs${offline ? ' · Offline' : ''}`;
+  if (playlist) {
+    $('summary').textContent = `${playlist.songs.length} songs${offline ? ' · Offline' : ''}`;
+    const total = playlist.songs.reduce((sum, s) => sum + (Number.isFinite(s.duration) ? s.duration : 0), 0);
+    $('playlist-duration').textContent = `${durationLabel(total)} total`;
+  }
 }
 standalone.addEventListener('change', updateTopButton);
 window.addEventListener('appinstalled', updateTopButton);
 const seconds = value => { const n = Math.max(0, Math.floor(Number(value) || 0)); return `${Math.floor(n / 60)}:${String(n % 60).padStart(2, '0')}`; };
+const durationLabel = value => {
+  const n = Math.round(Math.max(0, Number(value) || 0));
+  return n >= 3600 ? `${Math.floor(n/3600)}:${String(Math.floor(n/60)%60).padStart(2,'0')}:${String(n%60).padStart(2,'0')}` : `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;
+};
 const urlFor = s => new URL(s.url, location.href).href;
 function validData(d) {
   if (!Array.isArray(d.playlists) || !d.playlists.length) throw Error('No playlists found.');
@@ -80,8 +88,14 @@ async function render() {
     const b = document.createElement('button'); b.className = 'track' + (s.id === song?.id ? ' active' : '');
     const number = document.createElement('span'); number.className = 'number'; number.textContent = s.id === song?.id ? '♫' : String(i+1).padStart(2,'0');
     const name = document.createElement('span'); name.className='track-name'; name.textContent=s.name;
-    const badge = document.createElement('span'); badge.className='badge'; badge.textContent = await cache.match(urlFor(s)) ? 'Offline' : '';
-    b.append(number,name,badge); b.onclick = () => selectSong(s,true); return b;
+    const badge = document.createElement('span'); badge.className='offline-icon';
+    if (await cache.match(urlFor(s))) {
+      badge.title = 'Saved for offline'; badge.setAttribute('aria-label', 'Saved for offline');
+      badge.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg>';
+    }
+    const duration = document.createElement('span'); duration.className = 'track-duration';
+    duration.textContent = Number.isFinite(s.duration) ? durationLabel(s.duration) : '–:––';
+    b.append(number,name,badge,duration); b.onclick = () => selectSong(s,true); return b;
   }));
   if (!nodes.length) { const p=document.createElement('p');p.textContent='No songs here yet.';nodes.push(p); }
   $('tracks').replaceChildren(...nodes);

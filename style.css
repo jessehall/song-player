@@ -56,3 +56,5 @@ footer{padding-top:4px;padding-bottom:max(6px,env(safe-area-inset-bottom));min-h
 
 /* Lift the buttons visually without changing the timeline layout. */
 .controls{transform:translateY(-15px)}
+
+.playlist-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:none}.playlist-meta #summary{margin:6px 0 8px}#playlist-duration{font-size:11px;color:#796783;white-space:nowrap;font-variant-numeric:tabular-nums}.track-duration{font-size:12px;color:#796783;font-variant-numeric:tabular-nums;min-width:3.5em;text-align:right;flex:none}.offline-icon{display:inline-flex;align-items:center;justify-content:center;width:14px;flex:none;color:#67417e}.track{gap:10px}

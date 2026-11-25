@@ -29,3 +29,9 @@ To rename tracks manually, click Edit titles in the player, sign into GitHub, ch
 Playlist and title changes are checked every minute while visible, when returning to the app, and when reconnecting. Current playback continues for unchanged audio URLs. GitHub Pages must finish publishing before changes appear.
 
 Audio plays at its original recorded volume. The app does not normalize or process playback levels.
+
+## Folder sync
+
+Each directory directly inside `audio/` is one playlist, named exactly like that directory. Put recordings in the appropriate playlist folder, then ask Codex to sync. Run `python3 scripts/sync-playlists.py` to discover folders, update playlist membership, and measure track durations. Existing song IDs, display titles, order, and default start times are retained. New recordings are appended; files removed from a folder are removed from that playlist. No audio processing is performed. Loose files directly in `audio/` are ignored. Empty folders use `.gitkeep`.
+
+After sync, verify paths and JSON, commit the playlist and audio changes, push, and check Pages. To reorder or rename display titles, edit playlists.json or ask Codex.
